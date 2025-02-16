@@ -4,6 +4,12 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #a5c9ff;
+  background-image:
+    repeating-radial-gradient(circle at 0 0, transparent 0, #a5c9ff 27px),
+    repeating-linear-gradient(#0062ff1f, #0062ff11);
 }
 
 @layer base {
