@@ -9,6 +9,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        vividBlue: "#3B82F6",
+        vividBlueHover: "#639CF8",
+        warmOragne: "#ffc56f",
+
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
