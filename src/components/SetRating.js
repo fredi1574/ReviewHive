@@ -17,11 +17,13 @@ const SetRating = () => {
   return (
     <div className="flex">
       <p className="mr-2">Your Rating:</p>
+      {rating != 0 && <span className="mr-2">{rating}</span>}
       {[...Array(5)].map((_, index) => {
         const starValue = index + 1;
         return (
           <button
             key={starValue}
+            type="button"
             onClick={() => changeRating(starValue)}
             onMouseEnter={() => setHover(starValue)}
             onMouseLeave={() => setHover(rating)}
@@ -36,7 +38,7 @@ const SetRating = () => {
           </button>
         );
       })}
-      <span className="ml-2">{rating}</span>
+      <input type="hidden" name="rating" value={rating} />
     </div>
   );
 };

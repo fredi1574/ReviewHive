@@ -14,7 +14,7 @@ const ReportButton = () => {
   return (
     <Flag
       onClick={handleReport}
-      className={`size-10 justify-self-end rounded-lg p-2 transition-colors duration-300 hover:bg-slate-400 ${
+      className={`size-10 justify-self-end rounded-lg p-2 transition-colors duration-300 hover:bg-slate-200 active:bg-slate-300 ${
         reported ? "fill-red-500" : "fill-transparent"
       }`}
     />
