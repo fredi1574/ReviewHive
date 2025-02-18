@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 
 export async function signUp(formData) {
   "use server";
-  // Retrieve values from the submitted form data
   const email = formData.get("email");
   const password = formData.get("password");
 
