@@ -1,6 +1,6 @@
 import AddReviewSection from "@/components/AddReviewSection";
-import Rating from "@/components/Rating";
-import RatingDistribution from "@/components/RatingSection";
+import Rating from "@/components/AverageRating";
+import RatingDistribution from "@/components/RatingDistribution";
 import ReportButton from "@/components/ReportButton";
 import ReviewsSection from "@/components/ReviewsSection";
 import {
@@ -23,7 +23,7 @@ export default async function Profile({ params }) {
       <div className="text-center text-2xl text-red-500">Profile not found</div>
     );
   }
-  const { name, institute, departments, courses, rating } = profile;
+  const { name, institute, departments, courses, averageRating } = profile;
 
   return (
     <Card className="m-4">
@@ -44,10 +44,14 @@ export default async function Profile({ params }) {
       <CardContent>
         <p>{departments}</p>
         <p>{courses}</p>
-        <Rating />
+        <div className="flex">
+          <p className="mr-2">Average Rating: {averageRating}</p>
+          <Rating />
+          {/* <p className="ml-1 text-gray-400">({numberOfRates} ratings)</p> */}
+        </div>
         <RatingDistribution />
-        <AddReviewSection />
-        <ReviewsSection />
+        <AddReviewSection profileId={id} />
+        <ReviewsSection profileId={id} />
       </CardContent>
     </Card>
   );
