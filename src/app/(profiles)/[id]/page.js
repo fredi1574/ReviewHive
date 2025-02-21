@@ -11,9 +11,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { getProfileById, getReviewsByProfileId } from "@/lib/databaseFunctions";
-import { ArrowLeft, BookOpen, Building2, Star } from "lucide-react";
+import { ArrowLeft, BookOpen, Building2 } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -72,7 +71,7 @@ export default async function Profile({ params }) {
               </div>
             </div>
 
-            <Separator />
+            {/* <Separator /> */}
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -92,11 +91,11 @@ export default async function Profile({ params }) {
               <RatingDistribution ratingCounts={ratingCounts} />
             </div>
 
-            <Separator />
+            {/* <Separator /> */}
 
             <AddReviewSection profileId={id} />
 
-            <Separator />
+            {/* <Separator /> */}
 
             <ReviewsSection profileId={id} />
           </CardContent>
