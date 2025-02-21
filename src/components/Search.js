@@ -23,15 +23,15 @@ export default function Search({ placeHolder }) {
   }, [debouncedTerm, pathname, replace, searchParams]);
 
   return (
-    <div className="my-4">
+    <div className="my-4 flex rounded-md border-2 border-gray-50 bg-white py-[9px] text-sm outline-2 focus-within:border-warmOrange">
+      <SearchIcon className="mx-2 h-[18px] w-[18px] text-gray-500 peer-focus:text-gray-900" />
       <input
         id="search"
-        className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+        className="peer block w-full outline-none placeholder:text-gray-500"
         placeholder={placeHolder}
         value={term}
         onChange={(e) => setTerm(e.target.value)}
       />
-      <SearchIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
     </div>
   );
 }
