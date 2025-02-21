@@ -11,7 +11,8 @@ export default {
       colors: {
         vividBlue: "#3B82F6",
         vividBlueHover: "#639CF8",
-        warmOragne: "#ffc56f",
+        warmOrange: "#ffc56f",
+        lightOrange: "#FFD699",
 
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
