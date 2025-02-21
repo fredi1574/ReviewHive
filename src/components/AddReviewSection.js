@@ -1,29 +1,47 @@
-import { addReview } from "@/app/(lecturers)/[id]/actions";
+import { addReview } from "@/app/(profiles)/[id]/actions";
 import SetRating from "./SetRating";
 import { Button } from "./ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import { Checkbox } from "./ui/checkbox";
-import Separator from "./ui/Separator";
 import { Textarea } from "./ui/textarea";
 
 const AddReviewSection = ({ profileId }) => {
   return (
-    <form action={addReview}>
-      <Separator title="Add a review" />
-      <div className="flex flex-col gap-2 rounded-md bg-slate-100 p-2">
-        <input type="hidden" name="profileId" value={profileId} />
-        <SetRating name="rating" />
-        <Textarea
-          placeholder="Write your review here..."
-          name="body"
-          className="bg-sky-100"
-        />
-        <div className="flex w-max gap-2">
-          <Checkbox className="my-3" name="anonymous" />
-          <p className="text-md my-2">Submit anonymously</p>
-        </div>
-      </div>
-      <Button className="my-2 self-start">Submit</Button>
-    </form>
+    <Card>
+      <CardHeader>
+        <CardTitle>Add a Review</CardTitle>
+      </CardHeader>
+      <form action={addReview}>
+        <CardContent className="space-y-4">
+          <input type="hidden" name="profileId" value={profileId} />
+          <SetRating />
+          <Textarea
+            placeholder="Write your review here..."
+            name="body"
+            className="min-h-[100px]"
+            required
+          />
+          <div className="flex items-center space-x-2">
+            <Checkbox id="anonymous" name="anonymous" />
+            <label
+              htmlFor="anonymous"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              Submit anonymously
+            </label>
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button type="submit">Submit Review</Button>
+        </CardFooter>
+      </form>
+    </Card>
   );
 };
 
