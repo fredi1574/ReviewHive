@@ -11,7 +11,7 @@ const ReviewRating = ({ rating }) => {
             className={
               starValue <= rating
                 ? "fill-yellow-400 text-yellow-400"
-                : "text-gray-400"
+                : "text-gray-300"
             }
           />
         );
