@@ -1,7 +1,7 @@
 import { db } from "@/lib/firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 
-export async function getProfiles(query) {
+export async function getProfiles(query, category = "name") {
   const profilesCollectionRef = collection(db, "profiles");
   const querySnapshot = await getDocs(profilesCollectionRef);
   const profiles = querySnapshot.docs.map((doc) => ({
@@ -13,11 +13,19 @@ export async function getProfiles(query) {
     return profiles;
   }
 
-  const filteredProfiles = profiles.filter((profile) => {
-    return profile.name.toLowerCase().includes(query.toLowerCase());
-  });
+  // const filteredProfiles = profiles.filter((profile) => {
+  //   return profile.name.toLowerCase().includes(query.toLowerCase());
+  // });
 
-  return filteredProfiles;
+  // return filteredProfiles;
+
+  return profiles.filter((profile) => {
+    const fieldValue = profile[category];
+    if (!fieldValue) {
+      return false;
+    }
+    return fieldValue.toLowerCase().includes(query.toLowerCase());
+  });
 }
 
 export async function getProfileById(id) {
