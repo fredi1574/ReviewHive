@@ -13,12 +13,6 @@ export async function getProfiles(query, category = "name") {
     return profiles;
   }
 
-  // const filteredProfiles = profiles.filter((profile) => {
-  //   return profile.name.toLowerCase().includes(query.toLowerCase());
-  // });
-
-  // return filteredProfiles;
-
   return profiles.filter((profile) => {
     const fieldValue = profile[category];
     if (!fieldValue) {

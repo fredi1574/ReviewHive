@@ -8,15 +8,19 @@ export async function signUp(formData) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  createUserWithEmailAndPassword(auth, email, password).then(
-    async (userCredential) => {
-      const user = userCredential.user;
-      await setDoc(doc(db, "users", user.uid), {
-        email: user.email,
-        userName: user.email.split("@")[0],
-      });
-    },
-  );
-
-  return redirect("/");
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password,
+    );
+    const user = userCredential.user;
+    await setDoc(doc(db, "users", user.uid), {
+      email: user.email,
+      userName: user.email.split("@")[0],
+    });
+    return redirect("/");
+  } catch (error) {
+    console.error("Sign-up error:", error);
+  }
 }
