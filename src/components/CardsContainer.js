@@ -7,21 +7,20 @@ import Search from "./Search";
 export default async function CardsContainer({ searchParams }) {
   const params = await searchParams;
   const query = params.query || "";
-  const category = params.category;
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="mb-8 text-center text-3xl font-bold">Profiles</h1>
       <Search placeHolder={"Search profiles..."} />
-      <Suspense key={`${query}-${category}`} fallback={<LoadingState />}>
-        <ProfileGrid query={query} category={category} />
+      <Suspense key={query} fallback={<LoadingState />}>
+        <ProfileGrid query={query} />
       </Suspense>
     </div>
   );
 }
 
-async function ProfileGrid({ query, category }) {
-  const profiles = await getProfiles(query, category);
+async function ProfileGrid({ query }) {
+  const profiles = await getProfiles(query);
 
   if (!profiles || profiles.length === 0) {
     return <ErrorState />;
