@@ -40,18 +40,18 @@ export default function Search({ placeHolder }) {
       <SearchIcon className="mx-2 text-gray-500 peer-focus:text-gray-900" />
       <input
         id="search"
-        className="peer block w-full outline-none placeholder:text-gray-500"
+        className="peer w-full outline-none placeholder:text-gray-500"
         placeholder={placeHolder}
         value={term}
         onChange={(e) => setTerm(e.target.value)}
       />
-      <Select value={category} onValueChange={(value) => setCategory(value)}>
-        <SelectTrigger className="w-1/4 rounded-none border border-y-0 border-r-0 border-l-gray-300 focus:ring-0">
+      <Select defaultValue="name" onValueChange={(value) => setCategory(value)}>
+        <SelectTrigger className="w-1/4 rounded-none border border-y-0 border-r-0 border-l-gray-300 text-gray-500 focus:ring-0">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="name">Name</SelectItem>
-          <SelectItem value="institute">Institution</SelectItem>
+          <SelectItem value="institute">Institute</SelectItem>
           <SelectItem value="departments">Department</SelectItem>
           <SelectItem value="courses">Course</SelectItem>
         </SelectContent>
