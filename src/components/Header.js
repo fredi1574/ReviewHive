@@ -1,5 +1,4 @@
 "use client";
-
 import { signOut } from "firebase/auth";
 import { Menu } from "lucide-react";
 import Image from "next/image";
@@ -17,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { auth } from "@/lib/firebase";
+import { Home, Info, Plus, DollarSign } from "lucide-react";
 
 const Header = () => {
   const router = useRouter();
@@ -34,10 +34,18 @@ const Header = () => {
   };
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/addlecturer", label: "Add a lecturer" },
-    { href: "/about", label: "About" },
-    { href: "/donate", label: "Donate" },
+    { href: "/", label: "Home", icon: <Home className="h-4 w-4" /> },
+    {
+      href: "/addlecturer",
+      label: "Add a lecturer",
+      icon: <Plus className="h-4 w-4" />,
+    },
+    { href: "/about", label: "About", icon: <Info className="h-4 w-4" /> },
+    {
+      href: "/donate",
+      label: "Donate",
+      icon: <DollarSign className="h-4 w-4" />,
+    },
   ];
 
   return (
@@ -60,9 +68,12 @@ const Header = () => {
               key={item.href}
               asChild
               variant="ghost"
-              className="hover:bg-warmOrange"
+              className="flex items-center space-x-2 hover:bg-warmOrange"
             >
-              <Link href={item.href}>{item.label}</Link>
+              <Link href={item.href}>
+                {item.icon}
+                <span>{item.label}</span>
+              </Link>
             </Button>
           ))}
         </nav>
@@ -85,10 +96,13 @@ const Header = () => {
                     key={item.href}
                     asChild
                     variant="ghost"
-                    className="justify-start"
+                    className="flex items-center justify-start space-x-2 hover:bg-lightOrange"
                     onClick={() => setIsOpen(false)}
                   >
-                    <Link href={item.href}>{item.label}</Link>
+                    <Link href={item.href}>
+                      {item.icon}
+                      <span>{item.label}</span>
+                    </Link>
                   </Button>
                 ))}
               </nav>
