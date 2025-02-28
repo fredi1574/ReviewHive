@@ -15,7 +15,7 @@ function InfoCard({ profile }) {
   return (
     <Link href={`/${id}`}>
       <Card className="group h-full transition-all duration-300 hover:scale-105 hover:shadow-md">
-        <CardHeader className="group-hover:bg-warmOrange rounded-t-md bg-blue-50 duration-300">
+        <CardHeader className="rounded-t-md bg-blue-50 duration-300 group-hover:bg-warmOrange">
           <CardTitle className="text-xl font-bold">{name}</CardTitle>
           <CardDescription className="flex items-center text-sm text-muted-foreground">
             <Building2 className="mr-1 h-4 w-4" />
@@ -37,7 +37,7 @@ function InfoCard({ profile }) {
             </p>
             <div className="flex items-center">
               <Star className="mr-1 h-4 w-4 fill-yellow-400 text-yellow-400" />
-              <span className="font-semibold">{averageRating}</span>
+              <span className="font-semibold">{averageRating.toFixed(1)}</span>
               <span className="ml-1 text-sm text-muted-foreground">/ 5</span>
             </div>
           </div>
