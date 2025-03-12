@@ -1,5 +1,6 @@
 import { getReviewsByProfileId } from "@/lib/databaseFunctions";
 import Review from "./Review";
+import { Bookmark } from "lucide-react";
 
 export default async function ReviewsSection({ profileId }) {
   const reviews = await getReviewsByProfileId(profileId);
@@ -10,9 +11,12 @@ export default async function ReviewsSection({ profileId }) {
       {reviews.length > 0 ? (
         reviews.map((review) => <Review key={review.id} review={review} />)
       ) : (
-        <p className="text-muted-foreground">
-          No reviews yet. Be the first to leave a review!
-        </p>
+        <div className="flex flex-col items-center gap-2">
+          <Bookmark className="text-muted-foreground/40" />
+          <p className="text-muted-foreground">
+            No reviews yet. Be the first to leave a review!
+          </p>
+        </div>
       )}
     </div>
   );
