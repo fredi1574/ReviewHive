@@ -13,7 +13,7 @@ const RatingDistribution = ({ ratingCounts }) => {
               }`}
             />
           ))}
-          <span className="ml-2 text-gray-400">{` ${ratingCounts[star] !== undefined ? " - " + ratingCounts[star] : ""} `}</span>
+          <span className="ml-2 text-gray-400">{` ${ratingCounts[star] !== undefined ? " - " + "(" + ratingCounts[star] + ")" : ""} `}</span>
         </div>
       ))}
     </div>
