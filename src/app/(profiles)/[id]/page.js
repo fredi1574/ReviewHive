@@ -11,11 +11,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { getProfileById, getReviewsByProfileId } from "@/lib/databaseFunctions";
 import { ArrowLeft, BookOpen, Building2 } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
-import { Separator } from "@/components/ui/separator";
 
 export default async function Profile({ params }) {
   const { id } = await params;
@@ -33,11 +33,11 @@ export default async function Profile({ params }) {
   return (
     <Suspense fallback={<LoadingState />}>
       <div className="container mx-auto px-4 py-8">
-        <Card>
+        <Card className="bg-orange-50">
           <div className="flex justify-between rounded-t-md bg-lightOrange p-4">
             <Link
               href="/"
-              className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="flex items-center gap-2 rounded-md px-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-warmOrange hover:text-foreground"
             >
               <ArrowLeft className="h-4 w-4" />
               All profiles
@@ -57,7 +57,11 @@ export default async function Profile({ params }) {
                 <h3 className="mb-2 font-semibold">Departments</h3>
                 <div className="flex flex-wrap gap-2">
                   {departments.split(",").map((department, index) => (
-                    <Badge key={index} variant="secondary">
+                    <Badge
+                      key={index}
+                      variant="secondary"
+                      className="bg-warmOrange hover:cursor-pointer hover:bg-warmOrange/80"
+                    >
                       {department.trim()}
                     </Badge>
                   ))}

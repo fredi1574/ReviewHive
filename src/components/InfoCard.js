@@ -20,15 +20,15 @@ function InfoCard({ profile }) {
         whileTap={{ scale: 0.9, transition: { duration: 0.3 } }}
       >
         <Card className="group h-full transition-all duration-300 hover:scale-105 hover:shadow-md">
-          <CardHeader className="rounded-t-md bg-blue-50 duration-300 group-hover:bg-warmOrange">
+          <CardHeader className="rounded-t-md bg-orange-100 duration-300 group-hover:bg-warmOrange">
             <CardTitle className="text-xl font-bold">{name}</CardTitle>
             <CardDescription className="flex items-center text-sm text-muted-foreground">
               <Building2 className="mr-1 h-4 w-4" />
               {institute}
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <div className="mt-2 space-y-2">
+          <CardContent className="rounded-md group-hover:bg-orange-100">
+            <div className="space-y-2 pt-2">
               <div className="flex flex-wrap gap-2">
                 {departments.split(",").map((department, index) => (
                   <Badge key={index} variant="secondary">
