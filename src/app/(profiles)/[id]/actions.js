@@ -10,12 +10,15 @@ import { redirect } from "next/navigation";
 
 export async function addReview(formData) {
   "use server";
-  const userId = "";
+  let userId = "";
 
   const profileId = formData.get("profileId");
   const rating = Number(formData.get("rating"));
   const body = formData.get("body");
-  const anonymous = formData.get("anonymous");
+
+  // Temporary fix for not having a user
+  // const anonymous = formData.get("anonymous");
+  let anonymous = true;
 
   const author = anonymous
     ? "Anonymous"
@@ -27,7 +30,7 @@ export async function addReview(formData) {
   await setDoc(reviewDocRef, {
     rating: Number(rating),
     body,
-    author,
+    author: "Anonymous",
     timestamp: Timestamp.now(),
   });
 

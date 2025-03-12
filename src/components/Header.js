@@ -1,37 +1,22 @@
 "use client";
-import { signOut } from "firebase/auth";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { auth } from "@/lib/firebase";
-import { Home, Info, Plus, DollarSign } from "lucide-react";
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { DollarSign, Home, Info, Plus } from "lucide-react";
 
 const Header = () => {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const username = auth.currentUser?.displayName || "User";
-
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      router.push("/signup");
-    } catch (error) {
-      console.error("Error signing out:", error);
-    }
-  };
+  const [isOpen, setIsOpen] = useState();
 
   const navItems = [
     { href: "/", label: "Home", icon: <Home className="h-4 w-4" /> },
@@ -90,6 +75,7 @@ const Header = () => {
               side="right"
               className="w-[240px] border-0 bg-warmOrange sm:w-[300px]"
             >
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <nav className="flex flex-col space-y-4">
                 {navItems.map((item) => (
                   <Button
@@ -108,27 +94,6 @@ const Header = () => {
               </nav>
             </SheetContent>
           </Sheet>
-
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                <Avatar className="h-8 w-8">
-                  <AvatarFallback>
-                    {username.charAt(0).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="end"
-              className="border-orange-300 bg-warmOrange shadow-md"
-            >
-              <DropdownMenuItem onClick={() => router.push("/profile")}>
-                Profile
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </div>
     </header>

@@ -28,7 +28,14 @@ const AddReviewSection = ({ profileId }) => {
             required
           />
           <div className="flex items-center space-x-2">
-            <Checkbox id="anonymous" name="anonymous" className="h-7 w-7" />
+            <Checkbox
+              id="anonymous"
+              name="anonymous"
+              className="h-7 w-7"
+              // Temporary fix for not having users
+              checked
+              disabled
+            />
             <label
               htmlFor="anonymous"
               className="select-none text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
