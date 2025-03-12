@@ -24,21 +24,26 @@ const AddReviewSection = ({ profileId }) => {
           <Textarea
             placeholder="Write your review here..."
             name="body"
-            className="min-h-[100px]"
+            className="min-h-[100px] selection:bg-warmOrange focus-visible:ring-warmOrange"
             required
           />
           <div className="flex items-center space-x-2">
-            <Checkbox id="anonymous" name="anonymous" />
+            <Checkbox id="anonymous" name="anonymous" className="h-7 w-7" />
             <label
               htmlFor="anonymous"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              className="select-none text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               Submit anonymously
             </label>
           </div>
         </CardContent>
         <CardFooter>
-          <Button type="submit">Submit Review</Button>
+          <Button
+            type="submit"
+            className="bg-warmOrange/90 hover:bg-warmOrange/60 active:bg-warmOrange"
+          >
+            Submit Review
+          </Button>
         </CardFooter>
       </form>
     </Card>
