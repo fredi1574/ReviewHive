@@ -119,7 +119,10 @@ const Header = () => {
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent
+              align="end"
+              className="border-orange-300 bg-warmOrange shadow-md"
+            >
               <DropdownMenuItem onClick={() => router.push("/profile")}>
                 Profile
               </DropdownMenuItem>
