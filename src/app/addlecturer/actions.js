@@ -1,7 +1,6 @@
 import { db } from "@/lib/firebase";
-import { addDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { redirect } from "next/navigation";
-import { collection } from "firebase/firestore";
 
 export async function addLecturer(formData) {
   "use server";
