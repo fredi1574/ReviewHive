@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 
-import { Flag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -9,6 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Flag } from "lucide-react";
 
 const ReportButton = () => {
   const [reported, setReported] = useState(false);

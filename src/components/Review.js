@@ -5,7 +5,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import ReportButton from "./ReportButton";
+// import ReportButton from "./ReportButton";
 import ReviewRating from "./ReviewRating";
 
 export default function Review({ review }) {
@@ -25,7 +25,7 @@ export default function Review({ review }) {
             </p>
           </div>
         </div>
-        <ReportButton />
+        {/* <ReportButton /> */}
       </CardHeader>
       <CardContent>
         <p className="text-sm">{body}</p>

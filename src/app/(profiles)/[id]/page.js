@@ -1,7 +1,7 @@
 import AddReviewSection from "@/components/AddReviewSection";
 import Rating from "@/components/AverageRating";
 import RatingDistribution from "@/components/RatingDistribution";
-import ReportButton from "@/components/ReportButton";
+// import ReportButton from "@/components/ReportButton";
 import ReviewsSection from "@/components/ReviewsSection";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -34,15 +34,15 @@ export default async function Profile({ params }) {
     <Suspense fallback={<LoadingState />}>
       <div className="container mx-auto px-4 py-8">
         <Card className="bg-orange-50">
-          <div className="flex justify-between rounded-t-md bg-lightOrange p-4">
+          <div className="flex justify-between rounded-t-md bg-lightOrange">
             <Link
               href="/"
-              className="flex items-center gap-2 rounded-md px-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-warmOrange hover:text-foreground"
+              className="m-2 flex items-center gap-2 rounded-md px-2 py-4 text-sm font-medium text-muted-foreground transition-colors hover:bg-warmOrange hover:text-foreground"
             >
               <ArrowLeft className="h-4 w-4" />
               All profiles
             </Link>
-            <ReportButton />
+            {/* <ReportButton /> */}
           </div>
           <CardHeader>
             <CardTitle className="text-3xl font-bold">{name}</CardTitle>
