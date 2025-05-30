@@ -1,50 +1,24 @@
-# 🚀 ReviewHive
+# 🐝 ReviewHive
 
-*A platform for students to review lecturers, replacing outdated Excel-based reviews with a modern and accessible solution.*
+**ReviewHive** is a full-stack web app that allows students to leave anonymous reviews for their university lecturers. Designed to replace outdated Excel-based feedback processes, it makes feedback accessible, organized, and intuitive — all while protecting student identity.
 
----
-
-## 📌 Features
-
-✅ **Anonymous Reviews** – Students can submit reviews without revealing their identities.  
-✅ **Search & Filtering** – Easily find lecturers based on name, course, or rating.  
-✅ **Smooth UI & Animations** – Built with **Framer Motion** for a seamless experience.  
-✅ **Fast & Scalable** – Uses **Next.js** with **Firebase** for real-time data updates.  
-✅ **Modern & Mobile-Friendly** – Fully responsive design for all devices.  
+> 🔗 [Live Site](https://reviewhive-nine.vercel.app)  
+> 📂 [Repository](https://github.com/fredi1574/ReviewHive)
 
 ---
 
-## 🛠 Tech Stack
+## 🧠 Features
 
-- **Frontend:** Next.js, React, Tailwind CSS, Framer Motion  
-- **Backend & Database:** Firebase (Firestore) 
-- **Tools & Deployment:** Git, GitHub, Vercel  
+- 🗳 **Anonymous Reviews** – Students can leave honest, untraceable reviews
+- 🔍 **Search & Filter** – Search lecturers by name, subject, or tags
+- 💬 **Live Updates** – Real-time data updates using Firebase Firestore
+- ✨ **Animated UI** – Smooth transitions and feedback using Framer Motion
+- 📱 **Responsive Design** – Mobile-first, clean layout built with Tailwind CSS
 
 ---
 
-## 📦 Installation & Setup
+## 🧰 Tech Stack
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/fredi1574/reviewhive.git
-   cd reviewhive
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-
-3. **Start the development server:**
-   ```bash
-   npm run dev
-
-4. **Open in browser:**
-   ```bash
-   http://localhost:3000
-
-## 🎯 Future Improvements
-- Add lecturer reporting functionality
-- Improve review sorting & filtering
-
-## 👤 Author
-Fredi Bulshtein
-🔗 [LinkedIn](https://www.linkedin.com/in/fredibulshtein/)  
+| Frontend | Backend | Realtime DB | UI / Animations | Hosting |
+|----------|---------|-------------|------------------|---------|
+| React, Next.js, Tailwind CSS | Next.js API Routes | Firebase Firestore | Framer Motion | Vercel |
